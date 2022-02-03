@@ -13,10 +13,16 @@ configs = {
 # COMMAND ----------
 
 # Optionally, you can add <directory-name> to the source URI of your mount point.
+try {
 dbutils.fs.mount(
   source = "abfss://ncsqldb@ncdatalake.dfs.core.windows.net",
   mount_point = "/mnt/ncsqldb",
   extra_configs = configs)
+    }
+catch {
+  case e: Exception =>
+    println(s"*** ERROR: Unable to mount $mountPoint. Run previous cells to unmount first")
+}
 
 # COMMAND ----------
 
