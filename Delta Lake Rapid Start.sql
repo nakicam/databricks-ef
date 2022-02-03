@@ -1,19 +1,4 @@
 -- Databricks notebook source
--- MAGIC %py
--- MAGIC configs = {"fs.azure.account.auth.type": "OAuth",
--- MAGIC            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
--- MAGIC            "fs.azure.account.oauth2.client.id": "<application-id>",
--- MAGIC            "fs.azure.account.oauth2.client.secret": dbutils.secrets.get(scope="<scope-name>",key="<service-credential-key-name>"),
--- MAGIC            "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<directory-id>/oauth2/token"}
--- MAGIC 
--- MAGIC # Optionally, you can add <directory-name> to the source URI of your mount point.
--- MAGIC dbutils.fs.mount(
--- MAGIC   source = "abfss://ncsqldb@ncdatalake.dfs.core.windows.net",
--- MAGIC   mount_point = "/mnt/ncsqldb",
--- MAGIC   extra_configs = configs)
-
--- COMMAND ----------
-
 create database if not exists dbacademy;
 
 use dbacademy;
